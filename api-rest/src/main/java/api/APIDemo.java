@@ -19,5 +19,11 @@ public class APIDemo {
         get("/hello", (req, res) -> hallo());
         get("/json", (req, res) -> json());
         // go to => http://localhost:4567/hello
+        // get parameters
+        get("/:name", (request, response) -> {
+            return "Hello: " +"<h2 style='color:red'>" +request.params(":name")+"</h2>" +"\n"
+                    +"<p style='color:blue'>Your job is </p>"+ "<p style='color:green'>"+ request.queryParams("job")+ "</p>";
+
+        });
     }
 }
